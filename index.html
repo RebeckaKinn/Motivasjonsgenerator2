@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Motivasjonsklossene</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style> 
+            body{
+                background-image: url("bilder/kitty.jpg");
+                background-color: #cccccc;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            div{
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+
+
+        <script>
+            tilfeldigFirkant();
+            tilfeldigbokstav();
+    
+            function tilfeldigFirkant() {
+                var endX = tilfeldigTall(window.innerWidth * 0.2, window.innerWidth);
+                var endY = tilfeldigTall(window.innerHeight * 0.2, window.innerHeight);
+                
+                var startX = tilfeldigTall(1, endX * 0.8);
+                var startY = tilfeldigTall(1, endY * 0.8);
+                var bredde = endX - startX;
+                var høyde = endY - startY;
+                var farge = tilfeldigFarge();
+                var divHtml = '<div style="' +
+                    delAvStylePx('left', startX) +
+                    delAvStylePx('top', startY) +
+                    delAvStylePx('width', bredde) +
+                    delAvStylePx('height', høyde) +
+                    delAvStyle('background-color', farge) +
+                    '">' + 
+                    tilfeldigbokstav() +
+                    '</div>';
+                document.write(divHtml);
+                if (Math.random() < 0.9) tilfeldigFirkant();
+            }
+    
+            function delAvStylePx(navn, verdi) {
+                return delAvStyle(navn, verdi + 'px');
+            }
+    
+            function delAvStyle(navn, verdi) {
+                return navn + ':' + verdi + ';';
+            }
+    
+            function tilfeldigFarge() {
+                return '#' +
+                    tilfeldigTallEllerBokstavABCDEF() +
+                    tilfeldigTallEllerBokstavABCDEF() +
+                    tilfeldigTallEllerBokstavABCDEF() +
+                    tilfeldigTallEllerBokstavABCDEF() +
+                    tilfeldigTallEllerBokstavABCDEF() +
+                    tilfeldigTallEllerBokstavABCDEF();
+            }
+    
+            function tilfeldigTallEllerBokstavABCDEF() {
+                var tall = tilfeldigTall(0, 15);
+                if (tall < 10) return tall;
+                const charCodeA = 'a'.charCodeAt(0);
+                return String.fromCharCode(tall - 10 + charCodeA);
+            }
+    
+            function tilfeldigTall(minimum, maksimum) {
+                return minimum + Math.floor(Math.random() * (maksimum - minimum + 1));
+            }
+
+            function tilfeldigbokstav() {
+                var tall = tilfeldigTall(0, 28);
+                if (tall == 28) return 'Bare prøv igjen!';
+                if (tall == 27) return 'Alle gode ting er 3... eller 4. Kanskje 5?';
+                if (tall == 26) return 'Du er god nok!';
+                if (tall == 25) return 'Fin rumpe ;)';
+                if (tall == 24) return 'Du er veldig flink, jeg har true på deg!';
+                if (tall == 23) return 'I dag er din dag, hvis ikke så har du alltids imorgen';
+                if (tall == 22) return 'Husk å gi tid til det mest spesielle menneske i livet ditt; deg selv.';
+                if (tall == 21) return 'Husk å spise og drikke!';
+                if (tall == 20) return 'Det er alltid noen som bryr seg om deg';
+                if (tall == 19) return 'Kontakt noen du stoler på hvis du trenger hjelp'; 
+                if (tall == 18) return 'Veien blir til mens du går deg vill.';
+                if (tall == 17) return 'Sitt ikke inne når alt håp er ute.';
+                if (tall == 16) return 'Vi skal alle dø en dag. Men alle andre dager skal vi leve.';
+                if (tall == 15) return 'Med tre ord kan jeg summere opp alt jeg har lært om livet: Det går videre.';
+                if (tall == 14) return 'Det vil gå bra';
+                if (tall == 13) return 'Livet er et eneste stort lerret. Kast all den malingen du kan på det.';
+                if (tall == 12) return 'Det har jeg aldri prøvd før, så det tror jeg sikkert at jeg kan klare.';
+                if (tall == 11) return 'Livet krymper eller utvider seg i forhold til vårt eget mot.';
+                if (tall == 10) return 'Livet er kanskje ikke alltid en fest, men mens vi er her, kan vi like godt dans';
+                if (tall == 9) return 'Livet måles ikke i antall pust vi tar, men i antall øyeblikk som tar pusten fra oss.';
+                if (tall == 8) return 'Enten går det bra, eller så går det over.';
+                if (tall == 7) return 'Alt går bra til slutt. Er det ikke bra, er det ikke slutt.';
+                if (tall == 6) return 'Mot er ikke fravær av frykt, men evnen til å gå videre selv om du er redd.';
+                if (tall == 5) return 'Alt er mulig. Det umulige tar bare litt lenger tid.';
+                if (tall == 4) return 'Verden er full av muligheter. Husk at du er en av dem.';
+                if (tall == 3) return 'Å mislykkes betyr ikke at jeg har kastet bort livet mitt - det betyr at jeg har en god anledning til å begynne på nytt.';
+                if (tall == 2) return 'Hvis du tror solskinn bringer deg lykke, da har du ikke danset i regnet.';
+                if (tall == 1) return 'Du vet aldri hvor sterk du er før det å være sterk er det eneste valget du har.';
+                if (tall == 0) return 'Kan du drømme det, kan du gjøre det.';
+                
+                const charCodeA = 'a'.charCodeAt(0);
+                return String.fromCharCode(tall - 10 + charCodeA);
+            }
+
+        </script>
+
+
+      </script>
+    </body>
+</html>
