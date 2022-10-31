@@ -8,43 +8,52 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style> 
             body{
-                background-image: url("bilder/kitty.jpg");
+                background-image: url("bilder/cat2.jpg");
                 background-color: #cccccc;
                 background-repeat: no-repeat;
                 background-size: cover;
+                font-size: 30px;
+                color: aliceblue;
+                
             }
             div{
                 position: absolute;
             }
+
+            .refresh{
+               align-items: center;
+               
+}
+
+
         </style>
     </head>
     <body>
-
-
+        <div class="refresh" onClick="window.location.reload();"><img src="bilder/cat3.png" width="300px" height="200"></div>
         <script>
             tilfeldigFirkant();
-            tilfeldigbokstav();
-    
+            tilfeldig();
+            let newstyle = style.hei
+            var chattbubble
+
             function tilfeldigFirkant() {
+                
                 var endX = tilfeldigTall(window.innerWidth * 0.2, window.innerWidth);
                 var endY = tilfeldigTall(window.innerHeight * 0.2, window.innerHeight);
                 
                 var startX = tilfeldigTall(1, endX * 0.8);
                 var startY = tilfeldigTall(1, endY * 0.8);
-                var bredde = endX - startX;
-                var høyde = endY - startY;
-                var farge = tilfeldigFarge();
-                var divHtml = '<div style="' +
+                
+                
+                chattbubble = '<div style="' +
                     delAvStylePx('left', startX) +
                     delAvStylePx('top', startY) +
-                    delAvStylePx('width', bredde) +
-                    delAvStylePx('height', høyde) +
-                    delAvStyle('background-color', farge) +
                     '">' + 
-                    tilfeldigbokstav() +
+                    tilfeldigquote() +
                     '</div>';
-                document.write(divHtml);
-                if (Math.random() < 0.9) tilfeldigFirkant();
+                document.write(chattbubble);
+                if (Math.random() < 0.5) tilfeldigFirkant();
+                
             }
     
             function delAvStylePx(navn, verdi) {
@@ -76,7 +85,7 @@
                 return minimum + Math.floor(Math.random() * (maksimum - minimum + 1));
             }
 
-            function tilfeldigbokstav() {
+            function tilfeldigquote() {
                 var tall = tilfeldigTall(0, 28);
                 if (tall == 28) return 'Bare prøv igjen!';
                 if (tall == 27) return 'Alle gode ting er 3... eller 4. Kanskje 5?';
